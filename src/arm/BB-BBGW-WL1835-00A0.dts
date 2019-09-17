@@ -23,15 +23,19 @@
 			P9_12_pinmux { status = "disabled"; };	/* gpmc_ad12.gpio1_28 BT_EN */
 			P8_12_pinmux { status = "disabled"; };	/* gpmc_ad12.mmc2_dat0 */
 			P8_11_pinmux { status = "disabled"; };	/* gpmc_ad13.mmc2_dat1 */
+			P8_14_pinmux { status = "disabled"; };	/* ? */
 			P8_16_pinmux { status = "disabled"; };	/* gpmc_ad14.mmc2_dat2 */
 			P8_15_pinmux { status = "disabled"; };	/* gpmc_ad15.mmc2_dat3 */
-
+			P8_17_pinmux { status = "disabled"; };	/* ? */
 			P8_18_pinmux { status = "disabled"; };	/* gpmc_clk.mmc2_clk */
 
-			//Audio...
-			P9_28_pinmux { status = "disabled"; };
-			P9_29_pinmux { status = "disabled"; };
-			P9_31_pinmux { status = "disabled"; };
+			P8_26_pinmux { status = "disabled"; };	/* ? */
+			P9_92_pinmux { status = "disabled"; };	/* ? */
+
+			// //Audio...
+			// P9_28_pinmux { status = "disabled"; };
+			// P9_29_pinmux { status = "disabled"; };
+			// P9_31_pinmux { status = "disabled"; };
 		};
 	};
 
@@ -71,6 +75,7 @@
 				pinctrl-single,pins = <
 					AM33XX_IOPAD(0x828, PIN_OUTPUT_PULLDOWN | MUX_MODE7)	/* gpmc_ad10.gpio0_26 WL_EN */
 					AM33XX_IOPAD(0x82C, PIN_INPUT_PULLDOWN | MUX_MODE7)	/* gpmc_ad11.gpio0_27 WL_IRQ */
+					???AM33XX_IOPAD(0x9A0, PIN_OUTPUT_PULLDOWN | MUX_MODE7)	/* gpio3_18    wifi_pwr */
 				>;
 			};
 
@@ -79,26 +84,27 @@
 				pinctrl-single,pins = <
 					AM33XX_IOPAD(0x828, PIN_OUTPUT_PULLDOWN | MUX_MODE7)	/* gpmc_ad10.gpio0_26 WL_EN */
 					AM33XX_IOPAD(0x82C, PIN_INPUT_PULLDOWN | MUX_MODE7)	/* gpmc_ad11.gpio0_27 WL_IRQ */
+					???AM33XX_IOPAD(0x9A0, PIN_OUTPUT_PULLDOWN | MUX_MODE7)	/* gpio3_18    wifi_pwr */
 				>;
 			};
 
-			uart3_pins_default: pinmux_uart3_pins_default {
-				pinctrl-single,pins = <
-					AM33XX_IOPAD(0x934, PIN_INPUT_PULLUP | MUX_MODE1)	/* gmii1_rxd3.uart3_rxd */
-					AM33XX_IOPAD(0x938, PIN_OUTPUT_PULLDOWN | MUX_MODE1)	/* gmii1_rxd2.uart3_txd */
-					AM33XX_IOPAD(0x948, PIN_INPUT | MUX_MODE3)		/* mdio_data.uart3_ctsn */
-					AM33XX_IOPAD(0x94c, PIN_OUTPUT_PULLDOWN | MUX_MODE3)	/* mdio_clk.uart3_rtsn */
-				>;
-			};
+			// uart3_pins_default: pinmux_uart3_pins_default {
+			// 	pinctrl-single,pins = <
+			// 		AM33XX_IOPAD(0x934, PIN_INPUT_PULLUP | MUX_MODE1)	/* gmii1_rxd3.uart3_rxd */
+			// 		AM33XX_IOPAD(0x938, PIN_OUTPUT_PULLDOWN | MUX_MODE1)	/* gmii1_rxd2.uart3_txd */
+			// 		AM33XX_IOPAD(0x948, PIN_INPUT | MUX_MODE3)		/* mdio_data.uart3_ctsn */
+			// 		AM33XX_IOPAD(0x94c, PIN_OUTPUT_PULLDOWN | MUX_MODE3)	/* mdio_clk.uart3_rtsn */
+			// 	>;
+			// };
 
-			uart3_pins_sleep: pinmux_uart3_pins_sleep {
-				pinctrl-single,pins = <
-					AM33XX_IOPAD(0x934, PIN_INPUT_PULLDOWN | MUX_MODE7)	/* (L17) gmii1_rxd3.uart3_rxd */
-					AM33XX_IOPAD(0x938, PIN_INPUT_PULLDOWN | MUX_MODE7)	/* (L16) gmii1_rxd2.uart3_txd */
-					AM33XX_IOPAD(0x948, PIN_INPUT_PULLDOWN | MUX_MODE7)	/* (M17) mdio_data.uart3_ctsn */
-					AM33XX_IOPAD(0x94c, PIN_INPUT_PULLDOWN | MUX_MODE7)	/* (M18) mdio_clk.uart3_rtsn */
-				>;
-			};
+			// uart3_pins_sleep: pinmux_uart3_pins_sleep {
+			// 	pinctrl-single,pins = <
+			// 		AM33XX_IOPAD(0x934, PIN_INPUT_PULLDOWN | MUX_MODE7)	/* (L17) gmii1_rxd3.uart3_rxd */
+			// 		AM33XX_IOPAD(0x938, PIN_INPUT_PULLDOWN | MUX_MODE7)	/* (L16) gmii1_rxd2.uart3_txd */
+			// 		AM33XX_IOPAD(0x948, PIN_INPUT_PULLDOWN | MUX_MODE7)	/* (M17) mdio_data.uart3_ctsn */
+			// 		AM33XX_IOPAD(0x94c, PIN_INPUT_PULLDOWN | MUX_MODE7)	/* (M18) mdio_clk.uart3_rtsn */
+			// 	>;
+			// };
 		};
 	};
 
@@ -125,11 +131,11 @@
 				pinctrl-0 = <&wl18xx_pins>;
 				compatible = "gpio-leds";
 
-				wl18xx_bt_en {
-					label = "wl18xx_bt_en";
-					gpios = <&gpio1 28 GPIO_ACTIVE_HIGH>;
-					default-state = "off";
-				};
+				// wl18xx_bt_en {
+				// 	label = "wl18xx_bt_en";
+				// 	gpios = <&gpio1 28 GPIO_ACTIVE_HIGH>;
+				// 	default-state = "off";
+				// };
 			};
 		};
 	};
@@ -137,7 +143,8 @@
 	fragment@3 {
 		target = <&mac>;
 		__overlay__ {
-			status = "disabled";
+			// status = "disabled";
+			status = "okay";
 		};
 	};
 
@@ -161,23 +168,24 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 			wlcore: wlcore@2 {
-				compatible = "ti,wl1835";
+				compatible = "ti,wl1807";
 				reg = <2>;
 				interrupt-parent = <&gpio0>;
 				interrupts = <27 IRQ_TYPE_EDGE_RISING>;
+				/* ??? linux,phandle = <0x7>; */
 			};
 		};
 	};
 
-	fragment@5 {
-		target = <&uart3>;
-		__overlay__ {
-			pinctrl-names = "default", "sleep";
-			pinctrl-0 = <&uart3_pins_default>;
-			pinctrl-1 = <&uart3_pins_sleep>;
-			status = "okay";
-		};
-	};
+	// fragment@5 {
+	// 	target = <&uart3>;
+	// 	__overlay__ {
+	// 		pinctrl-names = "default", "sleep";
+	// 		pinctrl-0 = <&uart3_pins_default>;
+	// 		pinctrl-1 = <&uart3_pins_sleep>;
+	// 		status = "okay";
+	// 	};
+	// };
 
 	fragment@6 {
 		target = <&gpio1>;
@@ -202,12 +210,18 @@
 	fragment@7 {
 		target = <&gpio3>;
 		__overlay__ {
-			bt_aud_in {
+			// bt_aud_in {
+			// 	gpio-hog;
+			// 	gpios = <16 GPIO_ACTIVE_HIGH>;
+			// 	output-low;
+			// 	line-name = "MCASP0_AHCLKR";
+			// };
+			wlan_en {
 				gpio-hog;
-				gpios = <16 GPIO_ACTIVE_HIGH>;
-				output-low;
-				line-name = "MCASP0_AHCLKR";
-			};
+				gpios = <18 GPIO_ACTIVE_HIGH>;
+				output-high;
+				line-name = "wlan_en";
+			}
 		};
 	};
 };

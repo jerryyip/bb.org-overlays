@@ -1,0 +1,6 @@
+&tps {
+	compatible = "ti,tps65217";
+	interrupt-controller;
+	#interrupt-cells = <1>;
+    status = "disabled";
+}
