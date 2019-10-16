@@ -1,6 +1,81 @@
+/dts-v1/;
+/plugin/;
+
 &tps {
 	compatible = "ti,tps65217";
 	interrupt-controller;
 	#interrupt-cells = <1>;
     status = "disabled";
-}
+
+	charger {
+		compatible = "ti,tps65217-charger";
+		status = "disabled";
+	};
+
+	pwrbutton {
+		compatible = "ti,tps65217-pwrbutton";
+		status = "disabled";
+	};
+
+	regulators {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		dcdc1_reg: regulator@0 {
+			reg = <0>;
+			regulator-compatible = "dcdc1";
+            status = "disabled";
+		};
+
+		dcdc2_reg: regulator@1 {
+			reg = <1>;
+			regulator-compatible = "dcdc2";
+            status = "disabled";
+		};
+
+		dcdc3_reg: regulator@2 {
+			reg = <2>;
+			regulator-compatible = "dcdc3";
+            status = "disabled";
+		};
+
+		ldo1_reg: regulator@3 {
+			reg = <3>;
+			regulator-compatible = "ldo1";
+            status = "disabled";
+		};
+
+		ldo2_reg: regulator@4 {
+			reg = <4>;
+			regulator-compatible = "ldo2";
+            status = "disabled";
+		};
+
+		ldo3_reg: regulator@5 {
+			reg = <5>;
+			regulator-compatible = "ldo3";
+            status = "disabled";
+		};
+
+		ldo4_reg: regulator@6 {
+			reg = <6>;
+			regulator-compatible = "ldo4";
+            status = "disabled";
+		};
+	};
+};
+
+
+/ {
+	compatible = "ti,beaglebone", "ti,beaglebone-black", "ti,beaglebone-green";
+
+	/* identification */
+	part-number = "sensecap-no-tps65217";
+	version = "00A0", "A0";
+
+    fragment@0 {
+		target = <&tps>;
+        status = "disabled";
+    };
+
+};
