@@ -1401,6 +1401,29 @@
 			P9_97_gpio_input_pin: pinmux_P9_97_gpio_input_pin { pinctrl-single,pins = <
 				AM33XX_IOPAD(0x086c, PIN_INPUT | MUX_MODE7) >; };	
 
+            /* P9_98 gpio0_29 */
+			P9_98_default_pin: pinmux_P9_98_default_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x0944, PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7) >; };
+			P9_98_gpio_pin: pinmux_P9_98_gpio_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x0944, PIN_OUTPUT | INPUT_EN | MUX_MODE7) >; };		
+			P9_98_gpio_pu_pin: pinmux_P9_98_gpio_pu_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x0944, PIN_OUTPUT_PULLUP | INPUT_EN | MUX_MODE7) >; };	
+			P9_98_gpio_pd_pin: pinmux_P9_98_gpio_pd_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x0944, PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7) >; };	
+			P9_98_gpio_input_pin: pinmux_P9_98_gpio_input_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x0944, PIN_INPUT | MUX_MODE7) >; };	
+
+			/* P9_99 gpio2_0 */
+			P9_99_default_pin: pinmux_P9_99_default_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x0888, PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7) >; };
+			P9_99_gpio_pin: pinmux_P9_99_gpio_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x0888, PIN_OUTPUT | INPUT_EN | MUX_MODE7) >; };		
+			P9_99_gpio_pu_pin: pinmux_P9_99_gpio_pu_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x0888, PIN_OUTPUT_PULLUP | INPUT_EN | MUX_MODE7) >; };	
+			P9_99_gpio_pd_pin: pinmux_P9_99_gpio_pd_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x0888, PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7) >; };	
+			P9_99_gpio_input_pin: pinmux_P9_99_gpio_input_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x0888, PIN_INPUT | MUX_MODE7) >; };	
 
 			/* P9_43                GND */
 
@@ -2508,6 +2531,30 @@
 				pinctrl-4 = <&P9_97_gpio_input_pin>;
 			};
 
+			/* P9_98  */
+			P9_98_pinmux {
+				compatible = "bone-pinmux-helper";
+				status = "okay";
+				pinctrl-names = "default", "gpio", "gpio_pu", "gpio_pd", "gpio_input";
+				pinctrl-0 = <&P9_98_default_pin>;
+				pinctrl-1 = <&P9_98_gpio_pin>;
+				pinctrl-2 = <&P9_98_gpio_pu_pin>;
+				pinctrl-3 = <&P9_98_gpio_pd_pin>;
+				pinctrl-4 = <&P9_98_gpio_input_pin>;
+			};
+
+			/* P9_99  */
+			P9_99_pinmux {
+				compatible = "bone-pinmux-helper";
+				status = "okay";
+				pinctrl-names = "default", "gpio", "gpio_pu", "gpio_pd", "gpio_input";
+				pinctrl-0 = <&P9_99_default_pin>;
+				pinctrl-1 = <&P9_99_gpio_pin>;
+				pinctrl-2 = <&P9_99_gpio_pu_pin>;
+				pinctrl-3 = <&P9_99_gpio_pd_pin>;
+				pinctrl-4 = <&P9_99_gpio_input_pin>;
+			};
+
 			/* P9_43                GND */
 
 			/* P9_44                GND */
@@ -3066,6 +3113,20 @@
                 P9_97 {
 					gpio-name = "P9_97";
 					gpio = <&gpio1 27 0>;
+					input;
+					dir-changeable;
+				};
+
+                P9_98 {
+					gpio-name = "P9_98";
+					gpio = <&gpio0 29 0>;
+					input;
+					dir-changeable;
+				};
+
+                P9_99 {
+					gpio-name = "P9_99";
+					gpio = <&gpio2 0 0>;
 					input;
 					dir-changeable;
 				};
