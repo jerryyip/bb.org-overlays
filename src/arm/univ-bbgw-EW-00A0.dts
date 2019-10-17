@@ -173,22 +173,7 @@
 		"pru1",
 		"pruss";
 
-	/*
-	 * Helper to show loaded overlays under: /proc/device-tree/chosen/overlays/
-	 */
 	fragment@0 {
-		target-path="/";
-		__overlay__ {
-
-			chosen {
-				overlays {
-					univ-bbgw-EW-00A0 = __TIMESTAMP__;
-				};
-			};
-		};
-	};
-
-	fragment@1 {
 		target = <&am33xx_pinmux>;
 			__overlay__ {
 
@@ -1378,7 +1363,7 @@
 	/* Pin Multiplexing */
 	/************************/
 
-	fragment@2 {
+	fragment@1 {
 		target = <&ocp>;
 		__overlay__ {
 
@@ -2432,7 +2417,7 @@
 		};
 	};
 
-	fragment@3 {
+	fragment@2 {
 		target = <&ocp>;
 		__overlay__ {
 			cape-universal {
@@ -3115,7 +3100,6 @@
 				#size-cells = <0>;
 
 				compatible = "spidev";
-				symlink = "spi/0.0";
 
 				reg = <0>;
 				spi-max-frequency = <16000000>;
@@ -3128,7 +3112,6 @@
 				#size-cells = <0>;
 
 				compatible = "spidev";
-				symlink = "spi/0.1";
 
 				reg = <1>;
 				spi-max-frequency = <16000000>;
@@ -3151,7 +3134,6 @@
 				#size-cells = <0>;
 
 				compatible = "spidev";
-				symlink = "spi/1.0";
 
 				reg = <0>;
 				spi-max-frequency = <16000000>;
@@ -3163,7 +3145,6 @@
 				#size-cells = <0>;
 
 				compatible = "spidev";
-				symlink = "spi/1.1";
 
 				reg = <1>;
 				spi-max-frequency = <16000000>;

@@ -136,11 +136,15 @@
 		"P9.41",
 		"P9.41.1",
 		"P9.42",
-		"P9.42.1",
+		"P9.42.1", /* P9.92 */
 		/* "P9.43", GND */
 		/* "P9.44", GND */
 		/* "P9.45", GND */
 		/* "P9.46", GND */
+        "P9.93",
+        "P9.95",
+        "P9.96",
+        "P9.97",
 
 		"uart1",
 		"uart2",
@@ -173,22 +177,7 @@
 		"pru1",
 		"pruss";
 
-	/*
-	 * Helper to show loaded overlays under: /proc/device-tree/chosen/overlays/
-	 */
 	fragment@0 {
-		target-path="/";
-		__overlay__ {
-
-			chosen {
-				overlays {
-					univ-bbgw-Ex-00A0 = __TIMESTAMP__;
-				};
-			};
-		};
-	};
-
-	fragment@1 {
 		target = <&am33xx_pinmux>;
 			__overlay__ {
 
@@ -1364,6 +1353,55 @@
 			P9_92_pruin_pin: pinmux_P9_92_pruin_pin { pinctrl-single,pins = <
 				AM33XX_IOPAD(0x09a0, PIN_INPUT | MUX_MODE6) >; };			/* mcasp0_aclkr.pru0_in4 */
 
+			/* P9_93 gpio1_25 */
+			P9_93_default_pin: pinmux_P9_93_default_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x0864, PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7) >; };
+			P9_93_gpio_pin: pinmux_P9_93_gpio_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x0864, PIN_OUTPUT | INPUT_EN | MUX_MODE7) >; };		
+			P9_93_gpio_pu_pin: pinmux_P9_93_gpio_pu_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x0864, PIN_OUTPUT_PULLUP | INPUT_EN | MUX_MODE7) >; };	
+			P9_93_gpio_pd_pin: pinmux_P9_93_gpio_pd_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x0864, PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7) >; };	
+			P9_93_gpio_input_pin: pinmux_P9_93_gpio_input_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x0864, PIN_INPUT | MUX_MODE7) >; };	
+
+            /* P9_95 gpio1_9 */
+			P9_95_default_pin: pinmux_P9_95_default_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x096c, PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7) >; };
+			P9_95_gpio_pin: pinmux_P9_95_gpio_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x096c, PIN_OUTPUT | INPUT_EN | MUX_MODE7) >; };		
+			P9_95_gpio_pu_pin: pinmux_P9_95_gpio_pu_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x096c, PIN_OUTPUT_PULLUP | INPUT_EN | MUX_MODE7) >; };	
+			P9_95_gpio_pd_pin: pinmux_P9_95_gpio_pd_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x096c, PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7) >; };	
+			P9_95_gpio_input_pin: pinmux_P9_95_gpio_input_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x096c, PIN_INPUT | MUX_MODE7) >; };		
+            
+            /* P9_96 gpio1_8 */
+			P9_96_default_pin: pinmux_P9_96_default_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x0968, PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7) >; };
+			P9_96_gpio_pin: pinmux_P9_96_gpio_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x0968, PIN_OUTPUT | INPUT_EN | MUX_MODE7) >; };		
+			P9_96_gpio_pu_pin: pinmux_P9_96_gpio_pu_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x0968, PIN_OUTPUT_PULLUP | INPUT_EN | MUX_MODE7) >; };	
+			P9_96_gpio_pd_pin: pinmux_P9_96_gpio_pd_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x0968, PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7) >; };	
+			P9_96_gpio_input_pin: pinmux_P9_96_gpio_input_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x0968, PIN_INPUT | MUX_MODE7) >; };	
+            
+            /* P9_97 gpio1_27 */
+			P9_97_default_pin: pinmux_P9_97_default_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x086c, PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7) >; };
+			P9_97_gpio_pin: pinmux_P9_97_gpio_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x086c, PIN_OUTPUT | INPUT_EN | MUX_MODE7) >; };		
+			P9_97_gpio_pu_pin: pinmux_P9_97_gpio_pu_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x086c, PIN_OUTPUT_PULLUP | INPUT_EN | MUX_MODE7) >; };	
+			P9_97_gpio_pd_pin: pinmux_P9_97_gpio_pd_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x086c, PIN_OUTPUT_PULLDOWN | INPUT_EN | MUX_MODE7) >; };	
+			P9_97_gpio_input_pin: pinmux_P9_97_gpio_input_pin { pinctrl-single,pins = <
+				AM33XX_IOPAD(0x086c, PIN_INPUT | MUX_MODE7) >; };	
+
+
 			/* P9_43                GND */
 
 			/* P9_44                GND */
@@ -1378,7 +1416,7 @@
 	/* Pin Multiplexing */
 	/************************/
 
-	fragment@2 {
+	fragment@1 {
 		target = <&ocp>;
 		__overlay__ {
 
@@ -2422,6 +2460,54 @@
 				pinctrl-7 = <&P9_92_pruin_pin>;
 			};
 
+            /* P9_93  */
+			P9_93_pinmux {
+				compatible = "bone-pinmux-helper";
+				status = "okay";
+				pinctrl-names = "default", "gpio", "gpio_pu", "gpio_pd", "gpio_input";
+				pinctrl-0 = <&P9_93_default_pin>;
+				pinctrl-1 = <&P9_93_gpio_pin>;
+				pinctrl-2 = <&P9_93_gpio_pu_pin>;
+				pinctrl-3 = <&P9_93_gpio_pd_pin>;
+				pinctrl-4 = <&P9_93_gpio_input_pin>;
+			};
+
+            /* P9_95  */
+			P9_95_pinmux {
+				compatible = "bone-pinmux-helper";
+				status = "okay";
+				pinctrl-names = "default", "gpio", "gpio_pu", "gpio_pd", "gpio_input";
+				pinctrl-0 = <&P9_95_default_pin>;
+				pinctrl-1 = <&P9_95_gpio_pin>;
+				pinctrl-2 = <&P9_95_gpio_pu_pin>;
+				pinctrl-3 = <&P9_95_gpio_pd_pin>;
+				pinctrl-4 = <&P9_95_gpio_input_pin>;
+			};
+
+            /* P9_96  */
+			P9_96_pinmux {
+				compatible = "bone-pinmux-helper";
+				status = "okay";
+				pinctrl-names = "default", "gpio", "gpio_pu", "gpio_pd", "gpio_input";
+				pinctrl-0 = <&P9_96_default_pin>;
+				pinctrl-1 = <&P9_96_gpio_pin>;
+				pinctrl-2 = <&P9_96_gpio_pu_pin>;
+				pinctrl-3 = <&P9_96_gpio_pd_pin>;
+				pinctrl-4 = <&P9_96_gpio_input_pin>;
+			};
+
+            /* P9_97  */
+			P9_97_pinmux {
+				compatible = "bone-pinmux-helper";
+				status = "okay";
+				pinctrl-names = "default", "gpio", "gpio_pu", "gpio_pd", "gpio_input";
+				pinctrl-0 = <&P9_97_default_pin>;
+				pinctrl-1 = <&P9_97_gpio_pin>;
+				pinctrl-2 = <&P9_97_gpio_pu_pin>;
+				pinctrl-3 = <&P9_97_gpio_pd_pin>;
+				pinctrl-4 = <&P9_97_gpio_input_pin>;
+			};
+
 			/* P9_43                GND */
 
 			/* P9_44                GND */
@@ -2432,7 +2518,7 @@
 		};
 	};
 
-	fragment@3 {
+	fragment@2 {
 		target = <&ocp>;
 		__overlay__ {
 			cape-universal {
@@ -2955,6 +3041,34 @@
 					input;
 					dir-changeable;
 				};
+
+                P9_93 {
+					gpio-name = "P9_93";
+					gpio = <&gpio1 25 0>;
+					input;
+					dir-changeable;
+				};
+
+                P9_95 {
+					gpio-name = "P9_95";
+					gpio = <&gpio1 9 0>;
+					input;
+					dir-changeable;
+				};
+
+                P9_96 {
+					gpio-name = "P9_96";
+					gpio = <&gpio1 8 0>;
+					input;
+					dir-changeable;
+				};
+
+                P9_97 {
+					gpio-name = "P9_97";
+					gpio = <&gpio1 27 0>;
+					input;
+					dir-changeable;
+				};
 			};
 		};
 	};
@@ -3115,7 +3229,6 @@
 				#size-cells = <0>;
 
 				compatible = "spidev";
-				symlink = "spi/0.0";
 
 				reg = <0>;
 				spi-max-frequency = <16000000>;
@@ -3128,7 +3241,6 @@
 				#size-cells = <0>;
 
 				compatible = "spidev";
-				symlink = "spi/0.1";
 
 				reg = <1>;
 				spi-max-frequency = <16000000>;
@@ -3151,7 +3263,6 @@
 				#size-cells = <0>;
 
 				compatible = "spidev";
-				symlink = "spi/1.0";
 
 				reg = <0>;
 				spi-max-frequency = <16000000>;
@@ -3163,7 +3274,6 @@
 				#size-cells = <0>;
 
 				compatible = "spidev";
-				symlink = "spi/1.1";
 
 				reg = <1>;
 				spi-max-frequency = <16000000>;
